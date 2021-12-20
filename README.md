@@ -26,9 +26,9 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 #   
 
-The Open Network Operating System, better known as ONOS, is an open-source operating system that provides robust SDN controllers to manage large networks. ONOS is specifically designed with high scalability, performance and availability in mind and it provides lots of different APIs and abstractions for configuring and managing your networks.
+The Open Network Operating System, better known as ONOS, is an open-source operating system that provides robust SDN controllers to manage large networks. ONOS is specifically designed with high scalability, performance and availability in mind, and it provides lots of different APIs and abstractions for configuring and managing your networks.
 
-In this tutorial, we will cover how to set up ONOS on a virtual machine and how to use it in combination with Mininet. After that, we will also see a few examples where we will use some of the default applications that ONOS ships with.
+In this tutorial, we will cover how to set up ONOS on a virtual machine and how to use it in combination with Mininet. After that, we will also see a few examples where we will use some default applications that ONOS ships with.
 
 
 ## Setup Process
@@ -37,9 +37,9 @@ In this tutorial, we will cover how to set up ONOS on a virtual machine and how 
 
 ### Installing a Mininet VM
 
-For this tutorial, we will use one of the pre-packaged Mininet VMs available from the [Mininet Releases](https://github.com/mininet/mininet/releases/tag/2.3.0) page (in this tutorial, we used release 2.3.0). This VM runs Ubuntu 20.04.3 LTS and it includes Mininet and all necessary tools and binaries for OpenFlow support, along with some tweaks to the kernel configuration to support larger networks.
+For this tutorial, we will use one of the pre-packaged Mininet VMs available from the [Mininet Releases](https://github.com/mininet/mininet/releases/tag/2.3.0) page (in this tutorial, we used release 2.3.0). This VM runs Ubuntu 20.04.3 LTS, and it includes Mininet and all necessary tools and binaries for OpenFlow support, along with some tweaks to the kernel configuration to support larger networks.
 <br>
-After downloading one of the OVA files, you can double click on it to import it into VirtualBox.
+After downloading one of the OVA files, you can double-click on it to import it into VirtualBox.
 Once you see the Mininet VM listed in VirtualBox, go to Settings > Network and change the network adapter from NAT to Bridged Adapter. This will make it possible for your host OS to communicate with the VM through SSH (which will be explained in the next section).
 
 <img src="images/vm_settings.png" alt="VM Network Settings" title="VM Network Settings" width="600">
@@ -162,7 +162,7 @@ In this case, the local IP address of the system is `192.168.0.239`, so our URL 
 
 ![ONOS GUI Login Screen](images/onos_ui_login.png "ONOS GUI Login Screen")
 
-From here, you can login with one of the two default users, after which you should be redirected to the Topology View.
+From here, you can log in with one of the two default users, after which you should be redirected to the Topology View.
 
 ![ONOS GUI Topology View](images/onos_ui_topo.png "ONOS GUI Topology View")
 
@@ -232,7 +232,7 @@ Now that we have introduced the ONOS CLI and GUI, as well as how to use the cont
 
 ## Example ONOS Use Cases
 
-In this section, we will cover two use cases that could be useful on real networks. For the first use case, we will set up a layer 2 firewall to block traffic between certain hosts. In the second example, we will setup a Virtual Private LAN Service (VPLS).
+In this section, we will cover two use cases that could be useful on real networks. For the first use case, we will set up a layer 2 firewall to block traffic between certain hosts. In the second example, we will set up a Virtual Private LAN Service (VPLS).
 
 ### L2 Firewall
 
@@ -268,7 +268,7 @@ Now that we know how to change the Access Control List, we can start using it to
 | 3	 | 00:00:00:00:00:03 | 00:00:00:00:00:07 |
 | 4  | 00:00:00:00:00:06 | 00:00:00:00:00:05 |
 
-We also have two Python files in that directory: `firewall.py` and `delete_firewall.py`. In `firewall.py`, we read all of the MAC pairs from the csv file and send POST requests to the API to deny the traffic between them.
+We also have two Python files in that directory: `firewall.py` and `delete_firewall.py`. In `firewall.py`, we read all the MAC pairs from the csv file and send POST requests to the API to deny the traffic between them.
 ```python
 import sys
 import csv
@@ -310,7 +310,7 @@ for rule in firewall_rules:
 
 ```
 
-If you would like to remove all of the rules again, you can use the `delete_firewall.py` file. This code is pretty self-explanatory: it will remove all ACL rules by sending a DELETE request to the API.
+If you would like to remove all the rules again, you can use the `delete_firewall.py` file. This code is pretty self-explanatory: it will remove all ACL rules by sending a DELETE request to the API.
 ```python
 import requests
 
@@ -358,7 +358,7 @@ In this section, we will look at a mora advanced use case for ONOS: we will set 
 ONOS comes with a `vpls` application out of the box. Not only does this make it very easy to create, change and delete different VPLS networks whenever you want, it also allows the virtual LAN network to change dynamically over time. To understand how this works, we will first need to take a look at a more complex abstraction of ONOS called **intents**. 
 
 #### Intents
-ONOS has a subsystem that is called the Intent Framework. Intents allow to specify network behaviour in form of policies, rather than mechanisms. In short, this means that we will tell the network *what* to do, not *how* it should do it. To understand this better, let's look at a practical example of intents in ONOS.
+ONOS has a subsystem that is called the Intent Framework. Intents allow specifying network behaviour in form of policies, rather than mechanisms. In short, this means that we will tell the network *what* to do, not *how* it should do it. To understand this better, let's look at a practical example of intents in ONOS.
 
 Before we start, we will quickly set up ONOS and Mininet again. For ONOS, make sure you have the `org.onosproject.openflow` app activated. For Mininet, we will be using a larger and more complex topology called `torus`. You can create this topology as follows.
 ```bash
