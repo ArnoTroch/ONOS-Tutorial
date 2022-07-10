@@ -69,7 +69,7 @@ Now that we have Java installed, we can proceed by downloading ONOS. The [ONOS W
 
 Since ONOS's default packages assume ONOS gets installed under `/opt`, you should download and install the release there.
 ```bash
-sudo mkdir /opt && cd /opt
+sudo mkdir /opt ; cd /opt
 sudo wget -c https://repo1.maven.org/maven2/org/onosproject/onos-releases/2.6.0/onos-2.6.0.tar.gz
 ```
 
